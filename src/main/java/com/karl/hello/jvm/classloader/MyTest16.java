@@ -13,6 +13,8 @@ public class MyTest16 extends ClassLoader {
 
     private String classLoadName;
 
+    private String path;
+
     private final String fileExtension = ".class";
 
     public MyTest16(String classLoadName) {
@@ -26,28 +28,27 @@ public class MyTest16 extends ClassLoader {
         this.classLoadName = classLoadName;
     }
 
-    @Override
-    public String toString() {
-        return "MyTest16{" +
-                "classLoadName='" + classLoadName + '\'' +
-                '}';
+    public void setPath(String path) {
+        this.path = path;
     }
 
     @Override
     protected Class<?> findClass(String className) throws ClassNotFoundException {
+        System.out.println("findClass invoked: " + className);
+        System.out.println("class loader name: " + classLoadName);
         byte[] data = this.loadClassData(className);
         return this.defineClass(className, data, 0, data.length);
     }
 
-    private byte[] loadClassData(String name) {
+    private byte[] loadClassData(String className) {
         InputStream is = null;
         byte[] data = null;
         ByteArrayOutputStream baos = null;
+        className = className.replace(".", "/");
         try {
-            this.classLoadName = this.classLoadName.replace(".", "/");
-            is = new FileInputStream(new File(name + this.fileExtension));
+            is = new FileInputStream(new File(this.path + className + this.fileExtension));
             baos = new ByteArrayOutputStream();
-            int ch = 0;
+            int ch;
             while (-1 != (ch = is.read())) {
                 baos.write(ch);
             }
@@ -67,12 +68,55 @@ public class MyTest16 extends ClassLoader {
 
     public static void main(String[] args) throws Exception {
         MyTest16 loader1 = new MyTest16("loader1");
-        test(loader1);
-    }
+        // loader1.setPath("E:\\learning\\other-learn-demo\\hello-jvm\\target\\classes");
+        loader1.setPath("C:\\Users\\akang\\Desktop\\demo\\");
 
-    public static void test(ClassLoader classLoader) throws Exception {
-        Class<?> clazz = classLoader.loadClass("com.karl.hello.jvm.classloader.MyTest1");
+        Class<?> clazz = loader1.loadClass("com.karl.hello.jvm.classloader.MyTest1");
+        System.out.println("class: " + clazz.hashCode());
         Object object = clazz.newInstance();
         System.out.println(object);
+        System.out.println(object.getClass().getClassLoader());
+
+        System.out.println("-------------------------");
+
+        loader1 = null;
+        clazz = null;
+        object = null;
+        System.gc();
+
+        //可以用jvisualvm命令查看类卸载
+        //Thread.sleep(2000000);
+
+        loader1 = new MyTest16("loader1");
+        loader1.setPath("C:\\Users\\akang\\Desktop\\demo\\");
+        clazz = loader1.loadClass("com.karl.hello.jvm.classloader.MyTest1");
+        System.out.println("class: " + clazz.hashCode());
+        object = clazz.newInstance();
+
+        //System.gc();
+
+        System.out.println(object);
+        System.out.println(object.getClass().getClassLoader());
+
+        // MyTest16 loader2 = new MyTest16(loader1,"loader2");
+        // loader2.setPath("C:\\Users\\akang\\Desktop\\demo\\");
+        //
+        // Class<?> clazz2 = loader2.loadClass("com.karl.hello.jvm.classloader.MyTest1");
+        // System.out.println("class: "+clazz2.hashCode());
+        // Object object2 = clazz2.newInstance();
+        // System.out.println(object2);
+        // System.out.println(object2.getClass().getClassLoader());
+        //
+        //
+        // MyTest16 loader3 = new MyTest16(loader2,"loader3");
+        // loader3.setPath("C:\\Users\\akang\\Desktop\\demo\\");
+        //
+        // Class<?> clazz3 = loader3.loadClass("com.karl.hello.jvm.classloader.MyTest1");
+        // System.out.println("class: "+clazz3.hashCode());
+        // Object object3 = clazz3.newInstance();
+        // System.out.println(object3);
+        // System.out.println(object2.getClass().getClassLoader());
+
     }
+
 }
