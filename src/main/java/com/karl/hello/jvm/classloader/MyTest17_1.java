@@ -8,7 +8,6 @@ package com.karl.hello.jvm.classloader;
  * 父加载器所加载的类,不能访问子加载器所加载的类
  *
  * @author karl xie
- * Created on 2020-10-17 17:29
  */
 public class MyTest17_1 {
 

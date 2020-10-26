@@ -11,7 +11,6 @@ package com.karl.hello.jvm.classloader;
  *
  * 3.进入C:\workspace\Auto\target\cn\weather目录下拷贝weather.jar
  * @author karl xie
- * Created on 2020-10-18 10:28
  */
 public class MyTest18 {
 

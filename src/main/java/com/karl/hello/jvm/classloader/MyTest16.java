@@ -7,7 +7,6 @@ import java.io.InputStream;
 
 /**
  * @author karl xie
- * Created on 2020-10-15 16:04
  */
 public class MyTest16 extends ClassLoader {
 
@@ -26,6 +25,10 @@ public class MyTest16 extends ClassLoader {
     public MyTest16(ClassLoader parent, String classLoadName) {
         super(parent);//显示指定父加载器
         this.classLoadName = classLoadName;
+    }
+
+    public MyTest16(ClassLoader classLoader){
+        super(classLoader);
     }
 
     public void setPath(String path) {

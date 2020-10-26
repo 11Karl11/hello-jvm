@@ -4,7 +4,6 @@ import javax.sound.midi.Soundbank;
 
 /**
  * @author karl xie
- * Created on 2020-10-17 16:46
  */
 public class MySample {
 

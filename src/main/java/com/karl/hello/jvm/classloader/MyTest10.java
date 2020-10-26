@@ -2,7 +2,6 @@ package com.karl.hello.jvm.classloader;
 
 /**
  * @author karl xie
- * Created on 2020-10-14 11:33
  */
 class Parent2{
     static int a=3;

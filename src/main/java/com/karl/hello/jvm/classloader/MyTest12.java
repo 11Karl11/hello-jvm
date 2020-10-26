@@ -3,7 +3,6 @@ package com.karl.hello.jvm.classloader;
 /**
  * 调用ClassLoader类的loadClass方法加载一个类,并不是对类的主动使用,不会导致类初始化
  * @author karl xie
- * Created on 2020-10-14 13:46
  */
 
 class CL {

@@ -4,7 +4,6 @@ import com.sun.crypto.provider.AESKeyGenerator;
 
 /**
  * @author karl xie
- * Created on 2020-10-18 10:40
  */
 public class MyTest19 {
 

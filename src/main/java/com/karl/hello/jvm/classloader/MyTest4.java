@@ -10,7 +10,6 @@ package com.karl.hello.jvm.classloader;
  *
  * newarray:表示创建一个指定的原始类型的数据,并将其压入栈顶
  * @author karl xie
- * Created on 2020-10-13 15:33
  */
 public class MyTest4 {
     public static void main(String[] args) {

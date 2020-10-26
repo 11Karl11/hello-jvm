@@ -2,7 +2,6 @@ package com.karl.hello.jvm.classloader;
 
 /**
  * @author karl xie
- * Created on 2020-10-17 16:49
  */
 public class MyTest17 {
     public static void main(String[] args) throws Exception {

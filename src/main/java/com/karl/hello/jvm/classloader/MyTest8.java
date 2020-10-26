@@ -4,7 +4,6 @@ import java.util.Random;
 
 /**
  * @author karl xie
- * Created on 2020-10-14 11:22
  */
 
 

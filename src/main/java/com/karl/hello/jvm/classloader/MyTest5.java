@@ -7,7 +7,6 @@ import java.util.Random;
  * 只有在真正使用到父接口的时候(如引用接口中所定义的常量时),才会初始化
  *
  * @author karl xie
- * Created on 2020-10-13 15:55
  */
 public class MyTest5 {
     public static void main(String[] args) {
