@@ -19,7 +19,7 @@ import java.util.ServiceLoader;
  * ContextClassloader的作用就是为了破坏java的类加载委托机制
  *
  * 当高层提供了统一的接口让低层区实现,同时又要在高层加载(或实例化)低层的类时,
- * 就必须要通过线程上下文类加载器来帮助高层的Classloader找到并加载该类
+ * 就必须要通过线程上下文类加载器来帮助高层的Classloader找到并加载该类(ServiceLoader)
  *
  *
  *
