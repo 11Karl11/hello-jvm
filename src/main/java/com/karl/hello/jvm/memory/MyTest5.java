@@ -30,7 +30,8 @@ package com.karl.hello.jvm.memory;
 public class MyTest5 {
 
     public static void main(String[] args) {
-        for (;;){
+
+        for (; ; ) {
             System.out.println("hello world");
         }
     }
