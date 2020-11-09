@@ -12,7 +12,6 @@ package com.karl.hello.jvm.gc;
  * 8145K(堆上使用的总量)->6112K(19456K)
  *
  * @author karl xie
- * Created on 2020-11-05 17:09
  */
 public class MyTest1 {
 
